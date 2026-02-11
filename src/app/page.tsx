@@ -151,103 +151,157 @@ export default function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.94),rgba(243,247,255,0.76))]" />
       </div>
 
-      {/* ✅ HEADER NUEVO (más profesional) */}
-      <header className="sticky top-0 z-50">
-        {/* Barra superior “firma” del logo (delgada, elegante) */}
-        <div className="h-[3px] w-full bg-brand-700" />
+     {/* ✅ HEADER RESPONSIVO (compacto + menú móvil) */}
+<header className="sticky top-0 z-50">
+  {/* barra superior delgada */}
+  <div className="h-[3px] w-full bg-brand-700" />
 
-        {/* Top mini bar (contacto / redes) */}
-        <div className="border-b border-white/60 bg-white/70 backdrop-blur">
-          <Container>
-            <div className="flex flex-col gap-2 py-2 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex flex-wrap items-center gap-2 text-xs text-ink-3">
-                <span className="font-medium">{site.cityLine}</span>
-                <span className="text-slate-300">•</span>
-                <a className="font-semibold hover:text-brand-900" href={telLink}>
-                  {site.phoneDisplay}
-                </a>
-              </div>
-
-              <div className="flex flex-col gap-1 text-xs sm:items-end">
-                <ProfessionalLegend />
-                <div className="flex items-center gap-3 text-xs text-ink-3">
-                  <a
-                    className="font-semibold hover:text-brand-900"
-                    href={site.socials.instagramUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {site.socials.instagramHandle}
-                  </a>
-                  <span className="text-slate-300">•</span>
-                  <a
-                    className="font-semibold hover:text-brand-900"
-                    href={site.socials.facebookUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Facebook
-                  </a>
-                </div>
-              </div>
-            </div>
-          </Container>
+  {/* Top mini bar (en móvil se compacta y oculta lo pesado) */}
+  <div className="border-b border-white/60 bg-white/70 backdrop-blur">
+    <Container>
+      <div className="flex items-center justify-between py-2">
+        {/* izquierda: ciudad + tel (una sola línea) */}
+        <div className="flex min-w-0 items-center gap-2 text-xs text-ink-3">
+          <span className="truncate font-medium">{site.cityLine}</span>
+          <span className="text-slate-300">•</span>
+          <a className="shrink-0 font-semibold hover:text-brand-900" href={telLink}>
+            {site.phoneDisplay}
+          </a>
         </div>
 
-        {/* Main nav row */}
-        <div className="border-b border-white/60 bg-white/80 backdrop-blur">
-          <Container>
-            <div className="flex h-[76px] items-center justify-between">
-              {/* Brand */}
-              <a href="#inicio" className="flex items-center gap-3">
-                <LogoMark size="md" />
-                <div className="leading-tight">
-                  <p className="text-base font-extrabold tracking-tight text-brand-900">
-                    {site.brand}
-                  </p>
-                  <p className="text-[12px] font-medium text-ink-3">{site.subtitle}</p>
-                </div>
+        {/* derecha: en móvil solo instagram; en sm+ muestra todo */}
+        <div className="flex items-center gap-3 text-xs text-ink-3">
+          <a
+            className="font-semibold hover:text-brand-900"
+            href={site.socials.instagramUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {site.socials.instagramHandle}
+          </a>
+
+          <span className="hidden sm:inline text-slate-300">•</span>
+
+          <a
+            className="hidden sm:inline font-semibold hover:text-brand-900"
+            href={site.socials.facebookUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Facebook
+          </a>
+        </div>
+      </div>
+
+      {/* ✅ “ProfessionalLegend” solo en desktop para que NO engorde el header */}
+      <div className="hidden sm:block pb-2">
+        <ProfessionalLegend />
+      </div>
+    </Container>
+  </div>
+
+  {/* Main nav row */}
+  <div className="border-b border-white/60 bg-white/80 backdrop-blur">
+    <Container>
+      <div className="flex h-16 items-center justify-between sm:h-[72px]">
+        {/* Brand (logo más pequeño en móvil) */}
+        <a href="#inicio" className="flex items-center gap-3">
+          <div className="scale-[0.92] sm:scale-100">
+            <LogoMark size="sm" />
+          </div>
+
+          <div className="leading-tight">
+            <p className="text-[15px] font-extrabold tracking-tight text-brand-900 sm:text-base">
+              {site.brand}
+            </p>
+            <p className="hidden text-[12px] font-medium text-ink-3 sm:block">
+              {site.subtitle}
+            </p>
+          </div>
+        </a>
+
+        {/* Nav desktop */}
+        <nav className="hidden items-center gap-7 md:flex">
+          <a className="group relative text-sm font-semibold text-ink-2 hover:text-brand-900" href="#servicios">
+            Servicios
+            <span className="absolute -bottom-2 left-0 h-[2px] w-0 rounded-full bg-accent-500/70 transition-all duration-200 group-hover:w-full" />
+          </a>
+          <a className="group relative text-sm font-semibold text-ink-2 hover:text-brand-900" href="#especialidades">
+            Especialidades
+            <span className="absolute -bottom-2 left-0 h-[2px] w-0 rounded-full bg-accent-500/70 transition-all duration-200 group-hover:w-full" />
+          </a>
+          <a className="group relative text-sm font-semibold text-ink-2 hover:text-brand-900" href="#ubicacion">
+            Ubicación
+            <span className="absolute -bottom-2 left-0 h-[2px] w-0 rounded-full bg-accent-500/70 transition-all duration-200 group-hover:w-full" />
+          </a>
+          <a className="group relative text-sm font-semibold text-ink-2 hover:text-brand-900" href="#contacto">
+            Contacto
+            <span className="absolute -bottom-2 left-0 h-[2px] w-0 rounded-full bg-accent-500/70 transition-all duration-200 group-hover:w-full" />
+          </a>
+        </nav>
+
+        {/* CTAs desktop */}
+        <div className="hidden items-center gap-2 sm:flex">
+          <ButtonLink href={waLink} variant="cta">
+            WhatsApp
+          </ButtonLink>
+          <ButtonLink href={telLink} variant="outline">
+            Llamar
+          </ButtonLink>
+        </div>
+
+        {/* ✅ Menú móvil (sin JS, solo details) */}
+        <details className="relative md:hidden">
+          <summary className="list-none">
+            <button
+              type="button"
+              className="inline-flex items-center justify-center rounded-2xl border border-slate-200/70 bg-white/75 px-3 py-2 text-sm font-semibold text-ink-1 shadow-soft backdrop-blur"
+            >
+              Menú
+            </button>
+          </summary>
+
+          {/* panel */}
+          <div className="absolute right-0 mt-3 w-[min(92vw,360px)] overflow-hidden rounded-3xl border border-white/60 bg-white/90 p-3 shadow-[0_28px_95px_rgba(2,6,23,0.18)] backdrop-blur">
+            <div className="grid gap-1 p-1 text-sm">
+              <a className="rounded-2xl px-3 py-2 font-semibold text-ink-2 hover:bg-white" href="#servicios">
+                Servicios
               </a>
-
-              {/* Nav */}
-              <nav className="hidden items-center gap-7 md:flex">
-                <a className="group relative text-sm font-semibold text-ink-2 hover:text-brand-900" href="#servicios">
-                  Servicios
-                  <span className="absolute -bottom-2 left-0 h-[2px] w-0 rounded-full bg-accent-500/70 transition-all duration-200 group-hover:w-full" />
-                </a>
-                <a className="group relative text-sm font-semibold text-ink-2 hover:text-brand-900" href="#especialidades">
-                  Especialidades
-                  <span className="absolute -bottom-2 left-0 h-[2px] w-0 rounded-full bg-accent-500/70 transition-all duration-200 group-hover:w-full" />
-                </a>
-                <a className="group relative text-sm font-semibold text-ink-2 hover:text-brand-900" href="#ubicacion">
-                  Ubicación
-                  <span className="absolute -bottom-2 left-0 h-[2px] w-0 rounded-full bg-accent-500/70 transition-all duration-200 group-hover:w-full" />
-                </a>
-                <a className="group relative text-sm font-semibold text-ink-2 hover:text-brand-900" href="#contacto">
-                  Contacto
-                  <span className="absolute -bottom-2 left-0 h-[2px] w-0 rounded-full bg-accent-500/70 transition-all duration-200 group-hover:w-full" />
-                </a>
-              </nav>
-
-              {/* CTAs */}
-              <div className="flex items-center gap-2">
-                <ButtonLink href={waLink} variant="cta">
-                  WhatsApp
-                </ButtonLink>
-                <div className="hidden sm:block">
-                  <ButtonLink href={telLink} variant="outline">
-                    Llamar
-                  </ButtonLink>
-                </div>
-              </div>
+              <a className="rounded-2xl px-3 py-2 font-semibold text-ink-2 hover:bg-white" href="#especialidades">
+                Especialidades
+              </a>
+              <a className="rounded-2xl px-3 py-2 font-semibold text-ink-2 hover:bg-white" href="#ubicacion">
+                Ubicación
+              </a>
+              <a className="rounded-2xl px-3 py-2 font-semibold text-ink-2 hover:bg-white" href="#contacto">
+                Contacto
+              </a>
             </div>
-          </Container>
-        </div>
-      </header>
+
+            <div className="mt-2 grid gap-2 p-1">
+              <ButtonLink href={waLink} variant="cta">
+                Agendar por WhatsApp
+              </ButtonLink>
+              <ButtonLink href={telLink} variant="outline">
+                Llamar
+              </ButtonLink>
+            </div>
+
+            <div className="mt-3 rounded-2xl border border-white/60 bg-white/75 p-3 shadow-soft">
+              <ProfessionalLegend />
+            </div>
+          </div>
+        </details>
+      </div>
+    </Container>
+  </div>
+</header>
+
 
       {/* Floating CTA */}
-      <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-2">
-        <ButtonLink href={waLink} variant="cta">
+      
+<div className="fixed bottom-4 right-4 z-50 sm:hidden">
+         <ButtonLink href={waLink} variant="cta">
           Agendar
         </ButtonLink>
         <div className="hidden sm:block">
