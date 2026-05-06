@@ -1,6 +1,9 @@
 import { site } from "@/content/site";
 import Image from "next/image";
 import FerImg from "./Fer.png";
+import FerFoto2 from "./fer foto 2.jpeg";
+import FerCertificado from "./fer certificado.jpeg";
+import FerTeleton from "./fer teleton.jpeg";
 import LogoImg from "./logo.png";
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
@@ -476,6 +479,107 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* ── VIDEO ──────────────────────────────────────────────────────────── */}
+      <section className="bg-slate-50 py-20">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div className="order-2 lg:order-1">
+              <p className="text-[11px] font-bold uppercase tracking-widest text-brand-600">
+                Conoce al especialista
+              </p>
+              <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-ink-1 sm:text-4xl">
+                &ldquo;Si algo he aprendido como fisioterapeuta&hellip;&rdquo;
+              </h2>
+              <p className="mt-4 max-w-md text-[15px] leading-relaxed text-ink-3">
+                Fernando comparte su enfoque y filosofía de tratamiento. Formación continua, técnicas actualizadas y compromiso real con cada paciente.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <a
+                  href={waLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl bg-accent-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-500"
+                >
+                  <IcWhatsapp cls="h-4 w-4" />
+                  Agendar cita
+                </a>
+              </div>
+            </div>
+            <div className="order-1 lg:order-2 overflow-hidden rounded-2xl shadow-hero">
+              <video
+                src="/fervidio.mp4"
+                controls
+                playsInline
+                className="w-full"
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ── CERTIFICACIONES ────────────────────────────────────────────────── */}
+      <section className="bg-white py-20">
+        <Container>
+          <div className="mb-12 text-center">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-brand-600">
+              Formación y certificaciones
+            </p>
+            <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-ink-1 sm:text-4xl">
+              Especialización continua
+            </h2>
+            <p className="mt-3 max-w-xl mx-auto text-[15px] text-ink-3">
+              Formación constante para ofrecer técnicas de alto nivel y respaldo en cada diagnóstico.
+            </p>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2">
+            {/* EPTE Certificate */}
+            <div className="overflow-hidden rounded-2xl bg-white shadow-card ring-1 ring-slate-100 transition-all hover:-translate-y-0.5 hover:shadow-soft">
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src={FerCertificado}
+                  alt="Fernando Junior sosteniendo su certificación EPTE — Electrólisis Percutánea Terapéutica"
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
+              <div className="p-5">
+                <span className="inline-block rounded-full bg-brand-50 px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-brand-700">
+                  Certificación reciente
+                </span>
+                <p className="mt-2 font-semibold text-ink-1">EPTE® — Electrólisis Percutánea Terapéutica</p>
+                <p className="mt-1 text-sm leading-relaxed text-ink-3">
+                  Tratamiento clínico de tendinopatías y ecografía. Técnica invasiva de alta precisión para lesiones de tejido blando.
+                </p>
+                <p className="mt-2.5 text-xs font-medium text-brand-600">Abril 2026 · Puebla, México</p>
+              </div>
+            </div>
+
+            {/* Teletón */}
+            <div className="overflow-hidden rounded-2xl bg-white shadow-card ring-1 ring-slate-100 transition-all hover:-translate-y-0.5 hover:shadow-soft">
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src={FerTeleton}
+                  alt="Fernando Junior en el evento ADN Teletón ENFEI 2024 — Fundación Teletón"
+                  fill
+                  className="object-cover object-center"
+                />
+              </div>
+              <div className="p-5">
+                <span className="inline-block rounded-full bg-accent-50 px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent-700">
+                  Compromiso social
+                </span>
+                <p className="mt-2 font-semibold text-ink-1">Fundación Teletón · ADN TELETÓN</p>
+                <p className="mt-1 text-sm leading-relaxed text-ink-3">
+                  Participación en el evento ENFEI 2024. Fernando es parte de la red de fisioterapeutas comprometidos con la rehabilitación inclusiva.
+                </p>
+                <p className="mt-2.5 text-xs font-medium text-brand-600">ENFEI 2024 · Fundación Teletón</p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* ── ABOUT / ENFOQUE ────────────────────────────────────────────────── */}
       <section className="bg-[#071D3F] py-20">
         <Container>
@@ -485,8 +589,8 @@ export default function Home() {
               <div className="overflow-hidden rounded-2xl">
                 <div className="relative aspect-[4/3] w-full">
                   <Image
-                    src={FerImg}
-                    alt="Fernando Junior Delgado Castañeda en consultorio"
+                    src={FerFoto2}
+                    alt="Fernando Junior Delgado Castañeda en su consultorio de fisioterapia — certificados al fondo"
                     fill
                     className="object-cover object-top"
                   />
