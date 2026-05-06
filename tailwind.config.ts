@@ -43,6 +43,30 @@ export default {
         card: "0 1px 3px rgba(2,6,23,0.06), 0 8px 24px rgba(2,6,23,0.06)",
         hero: "0 30px 80px rgba(2, 6, 23, 0.18)",
       },
+      animation: {
+        "fade-up":  "fadeUp  0.65s cubic-bezier(0.16,1,0.3,1) both",
+        "fade-in":  "fadeIn  0.55s ease-out both",
+        "scale-in": "scaleIn 0.6s  cubic-bezier(0.16,1,0.3,1) both",
+        "float":    "float   4s    ease-in-out infinite",
+      },
+      keyframes: {
+        fadeUp: {
+          from: { opacity: "0", transform: "translateY(18px)" },
+          to:   { opacity: "1", transform: "translateY(0)" },
+        },
+        fadeIn: {
+          from: { opacity: "0" },
+          to:   { opacity: "1" },
+        },
+        scaleIn: {
+          from: { opacity: "0", transform: "scale(0.96)" },
+          to:   { opacity: "1", transform: "scale(1)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%":      { transform: "translateY(-8px)" },
+        },
+      },
     },
   },
   plugins: [],

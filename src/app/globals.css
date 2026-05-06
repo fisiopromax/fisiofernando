@@ -18,3 +18,89 @@ body {
 details[open] summary svg.menu-icon {
   display: none;
 }
+
+/* ── Shimmer en botones accent ──────────────────────────────────────────── */
+a[class*="bg-accent-"],
+button[class*="bg-accent-"] {
+  position: relative;
+  overflow: hidden;
+}
+a[class*="bg-accent-"]::after,
+button[class*="bg-accent-"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.26) 50%,
+    transparent 65%
+  );
+  transform: translateX(-150%) skewX(-8deg);
+  transition: none;
+  pointer-events: none;
+}
+a[class*="bg-accent-"]:hover::after,
+button[class*="bg-accent-"]:hover::after {
+  transform: translateX(150%) skewX(-8deg);
+  transition: transform 0.52s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Nav underline deslizante ───────────────────────────────────────────── */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ── Pulse ring (botón flotante) ────────────────────────────────────────── */
+@keyframes pulseRing {
+  0%  { box-shadow: 0 0 0 0    rgba(230, 30, 93, 0.55); }
+  70% { box-shadow: 0 0 0 14px rgba(230, 30, 93, 0); }
+  100%{ box-shadow: 0 0 0 0    rgba(230, 30, 93, 0); }
+}
+.pulse-ring {
+  animation: pulseRing 2.2s ease-out infinite;
+}
+
+/* ── Scroll reveal (navegadores modernos) ───────────────────────────────── */
+@keyframes revealFadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: revealFadeUp linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 28%;
+  }
+  .reveal-fast {
+    animation: revealFadeUp linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 20%;
+  }
+}
+
+/* ── Respeto por prefers-reduced-motion ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-fast,
+  .pulse-ring,
+  [class*="animate-"] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
