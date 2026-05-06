@@ -4,6 +4,9 @@ export default {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
+      },
       colors: {
         brand: {
           50: "#F3F7FF",
@@ -29,32 +32,16 @@ export default {
           800: "#8A0D37",
           900: "#5C0825",
         },
-
-        // Tokens semánticos (te ayudan a un look consistente)
-        surface: {
-          0: "rgba(255,255,255,0.92)",
-          1: "rgba(255,255,255,0.78)",
-          2: "rgba(255,255,255,0.65)",
-        },
         ink: {
           1: "#0B1220",
           2: "#334155",
           3: "#64748B",
         },
       },
-
       boxShadow: {
-        soft: "0 10px 30px rgba(2, 6, 23, 0.08)",
-        glow: "0 18px 60px rgba(33, 78, 230, 0.18)",
-        glowAccent: "0 18px 60px rgba(255, 46, 109, 0.18)",
-        header: "0 18px 55px rgba(2, 6, 23, 0.08)",
-        ring: "0 0 0 6px rgba(59,108,255,0.15)",
-      },
-
-      backgroundImage: {
-        // degradado “firma” del logo
-        "brand-accent":
-          "linear-gradient(90deg, rgba(33,78,230,1) 0%, rgba(255,46,109,1) 100%)",
+        soft: "0 4px 24px rgba(2, 6, 23, 0.06)",
+        card: "0 1px 3px rgba(2,6,23,0.06), 0 8px 24px rgba(2,6,23,0.06)",
+        hero: "0 30px 80px rgba(2, 6, 23, 0.18)",
       },
     },
   },

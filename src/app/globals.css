@@ -10,7 +10,11 @@ body {
   margin: 0;
 }
 
-/* Selección bonita (detalle profesional) */
 ::selection {
-  background: rgba(255, 46, 109, 0.18);
+  background: rgba(230, 30, 93, 0.15);
+}
+
+/* Mobile menu open state */
+details[open] summary svg.menu-icon {
+  display: none;
 }
