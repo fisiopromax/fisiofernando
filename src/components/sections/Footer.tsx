@@ -65,11 +65,11 @@ export default function Footer() {
             <ul className="mt-4 space-y-2.5">
               {(
                 [
-                  ["#inicio", "Inicio"],
-                  ["#servicios", "Servicios"],
-                  ["#especialidades", "Especialidades"],
-                  ["#ubicacion", "Ubicacion"],
-                  ["#contacto", "Contacto"],
+                  ["/", "Inicio"],
+                  ["/servicios", "Servicios"],
+                  ["/especialidades", "Especialidades"],
+                  ["/nosotros", "Nosotros"],
+                  ["/contacto", "Contacto"],
                 ] as [string, string][]
               ).map(([href, label]) => (
                 <li key={href}>

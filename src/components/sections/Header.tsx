@@ -10,7 +10,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/95 shadow-soft backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between gap-4 sm:h-[68px]">
 
-        <a href="#inicio" className="flex shrink-0 items-center gap-3 transition-opacity duration-200 hover:opacity-80">
+        <a href="/" className="flex shrink-0 items-center gap-3 transition-opacity duration-200 hover:opacity-80">
           <span className="relative flex h-9 w-9 shrink-0 overflow-hidden rounded-xl bg-brand-50 ring-1 ring-brand-100">
             <Image src={LogoImg} alt="FS Therapy" fill className="object-contain p-1" />
           </span>
@@ -23,10 +23,10 @@ export default function Header() {
         <nav className="hidden items-center gap-7 md:flex">
           {(
             [
-              ["#servicios", "Servicios"],
-              ["#especialidades", "Especialidades"],
-              ["#ubicacion", "Ubicacion"],
-              ["#contacto", "Contacto"],
+              ["/servicios", "Servicios"],
+              ["/especialidades", "Especialidades"],
+              ["/nosotros", "Nosotros"],
+              ["/contacto", "Contacto"],
             ] as [string, string][]
           ).map(([href, label]) => (
             <a
@@ -64,10 +64,10 @@ export default function Header() {
             <div className="absolute right-0 top-full mt-2 w-64 overflow-hidden rounded-2xl border border-slate-100 bg-white py-2 shadow-xl">
               {(
                 [
-                  ["#servicios", "Servicios"],
-                  ["#especialidades", "Especialidades"],
-                  ["#ubicacion", "Ubicacion"],
-                  ["#contacto", "Contacto"],
+                  ["/servicios", "Servicios"],
+                  ["/especialidades", "Especialidades"],
+                  ["/nosotros", "Nosotros"],
+                  ["/contacto", "Contacto"],
                 ] as [string, string][]
               ).map(([href, label]) => (
                 <a

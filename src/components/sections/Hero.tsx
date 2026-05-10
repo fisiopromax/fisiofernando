@@ -23,6 +23,25 @@ export default function Hero() {
               Fisioterapia Profesional · Roma Sur · CDMX
             </div>
 
+            {/* Color palette decoration */}
+            <div className="mt-4 flex animate-fade-in items-center gap-2 [animation-delay:60ms]">
+              {[
+                "#3B6CFF",
+                "#6C99FF",
+                "#CFE0FF",
+                "#FF2E6D",
+                "#FF93B2",
+                "#FFE4EC",
+              ].map((color) => (
+                <span
+                  key={color}
+                  className="h-3 w-3 rounded-full ring-1 ring-black/10"
+                  style={{ backgroundColor: color }}
+                />
+              ))}
+              <span className="ml-1 text-[10px] text-ink-3">Paleta FS Therapy</span>
+            </div>
+
             <h1 className="mt-5 animate-fade-up text-[2.4rem] font-extrabold leading-[1.15] tracking-tight text-ink-1 [animation-delay:100ms] sm:text-5xl">
               {site.name}
             </h1>
